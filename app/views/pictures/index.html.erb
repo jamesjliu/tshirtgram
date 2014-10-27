@@ -1,0 +1,11 @@
+<div class="row">
+  <% @pictures.each do |picture| %>
+  <div class="col-xs-6 col-md-3">
+    <a href="/pictures/<%= picture.id %> " class="thumbnail">
+      <%= image_tag(picture.image.url(:medium)) %> <br>
+      <%= picture.title %> <br>
+      Posted by: <%= picture.user.first_name %> <br>
+    </a>
+  </div>
+<% end %>
+</div>

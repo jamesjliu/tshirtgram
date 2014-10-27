@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @picture.title %>
+</h1>
+
+
+<%= image_tag(@picture.image.url, :width=>"500") %>
+
+<br>
+
+<% if @picture.user_id == current_user.id %>
+<%= link_to 'Edit', edit_picture_path(@picture) %> 
+<%end%>
+
+<%= link_to 'Back', pictures_path %>
+
+<%= form_tag sales_path(picture_id:@picture.id) do %>
+  <article>
+    <label class="amount">
+      <span>Print this Picture onto a T-Shirt: £15.00</span>
+    </label>
+  </article>
+
+Size:<br> <%= select(:size, :size,['Small', 'Medium', 'Large']) %> <br>
+
+Address:<br>        <%= text_area(:address, :address) %><br>
+Postal Code:<br>    <%= text_field(:postal_code, :postal_code) %><br>
+Country:<br>        <%= text_field(:country, :country) %><br>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="<% @picture.title %>"
+          data-currency="GBP"
+          data-image="<%= @picture.image.url(:thumb) %>"
+          data-label="Get this T-Shirt"
+          data-description="T-Shirt"
+          data-amount="1500"></script>
+<% end %>

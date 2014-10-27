@@ -1,0 +1,7 @@
+<h1>Your Orders</h1>
+
+<ul>
+  <% @usersorder.each do |usersorder| %>
+  <li> You bought a "<%= usersorder.picture.title %>" for £<%= usersorder.amount/100 %> </li>
+  <%end%>
+</ul>

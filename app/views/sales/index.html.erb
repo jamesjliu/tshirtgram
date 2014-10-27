@@ -1,0 +1,43 @@
+<h1>Listing sales</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>User</th>
+      <th>Picture</th>
+      <th>Amount</th>
+      <th>Size</th>
+      <th>Address</th>
+      <th>Country</th>
+      <th>Stripe</th>
+      <th>Stripe token</th>
+      <th>Card expiration</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales.each do |sale| %>
+      <tr>
+        <td><%= sale.email %></td>
+        <td><%= sale.user_id %></td>
+        <td><%= sale.picture_id %></td>
+        <td><%= sale.amount %></td>
+        <td><%= sale.size %></td>
+        <td><%= sale.address %></td>
+        <td><%= sale.country %></td>
+        <td><%= sale.stripe_id %></td>
+        <td><%= sale.stripe_token %></td>
+        <td><%= sale.card_expiration %></td>
+        <td><%= link_to 'Show', sale %></td>
+        <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+        <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sale', new_sale_path %>

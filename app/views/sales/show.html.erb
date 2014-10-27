@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @sale.email %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @sale.user_id %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @sale.picture_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @sale.amount %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @sale.size %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @sale.address %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @sale.country %>
+</p>
+
+<p>
+  <strong>Strip:</strong>
+  <%= @sale.strip_id %>
+</p>
+
+<p>
+  <strong>Stripe token:</strong>
+  <%= @sale.stripe_token %>
+</p>
+
+<p>
+  <strong>Card expiration:</strong>
+  <%= @sale.card_expiration %>
+</p>
+
+<%= link_to 'Edit', edit_sale_path(@sale) %> |
+<%= link_to 'Back', sales_path %>
